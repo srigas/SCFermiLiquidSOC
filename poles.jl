@@ -1,14 +1,12 @@
-#using LinearAlgebra
 using Roots
 using DelimitedFiles
-#using BenchmarkTools
 
 # Constants
 ħ = 1.0
 m = 0.5
 
 # Change directory if need be
-listparams = readdlm("\\Users\\rigas\\Desktop\\Physics\\Διδακτορικό\\BCS Green functions\\Part II - Superconducting Fermi Liquid w SOC\\Code\\config.txt")
+listparams = readdlm("\\config.txt")
 
 # Variables
 k_F = listparams[1]
@@ -36,7 +34,7 @@ append!(listzeros, find_zeros(Eq_1,-10,10^10))
 append!(listzeros, find_zeros(Eq_2,-10,10^10))
 
 # Change directory if need be
-file2 = open("\\Users\\rigas\\Desktop\\Physics\\Διδακτορικό\\BCS Green functions\\Part II - Superconducting Fermi Liquid w SOC\\Code\\kpoles.dat", "w")
+file2 = open("\\kpoles.dat", "w")
 for i in 1:length(listzeros)
     if listzeros[i] > 0.0
         println(file2, listzeros[i])
